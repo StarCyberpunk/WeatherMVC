@@ -1,0 +1,42 @@
+﻿@model WeatherMVC.Models.ViewModels.WeatherViewModel
+@{
+    ViewData["Title"] = "View";
+
+}
+@if (Model != null)
+{
+    <table border="1">
+        <tr>
+        <th>Дата</th>
+        <th>Время МСК</th><th>Е</th><th>Влажность</th><th>Td</th>
+        <th>Давление</th>
+        <th>Направление ветра</th>
+        <th>Скорость ветра м/с</th>
+        <th>Облачность</th><th>h</th><th>VV</th><th>Погодные явления</th>
+        </tr>
+   @for(int i = 0; i < @Model.weathersYearMonth.Count; i++)
+    {
+        <tr>
+        <td>@Model.weathersYearMonth[i].Date</td>
+        <td> @Model.weathersYearMonth[i].Time </td>
+<td>@Model.weathersYearMonth[i].T </td>
+<td>@Model.weathersYearMonth[i].Vlaga </td>
+<td>@Model.weathersYearMonth[i].Td </td>
+<td>@Model.weathersYearMonth[i].Ps </td>
+<td>@Model.weathersYearMonth[i].NaprVet </td>
+<td>@Model.weathersYearMonth[i].SpeedVetra </td>
+<td>@Model.weathersYearMonth[i].Oblach </td>
+<td>@Model.weathersYearMonth[i].h </td>
+<td>@Model.weathersYearMonth[i].VV </td>
+<td align="center">@Model.weathersYearMonth[i].pogoda </td>
+         </tr>
+         
+    }
+    </table>
+}
+else
+{
+    <h1>Данных нет</h1>
+}
+
+

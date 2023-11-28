@@ -1,0 +1,56 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Show";
+    Layout = "_LauoutS";
+}
+
+<h1>Show</h1>
+
+<a asp-action="Index" asp-controller="Home">Back</a><p></p>
+@{
+    for (int z = 0; z < 4; z++)
+    {
+        <a asp-controller="ShowEx" asp-action="Show" asp-route-year=201@(z) asp-route-month="1">201@(z)</a>
+    }
+    <p></p>
+    for (int j = 1; j <= 12; j++)
+    {
+        if (j < 10)
+        {
+            <a asp-controller="ShowEx" asp-action="Show" asp-route-year=@Model.year asp-route-month=@j>0@(j)</a>
+        }
+        else
+        {
+            <a asp-controller="ShowEx" asp-action="Show" asp-route-year=@Model.year asp-route-month=@j> @(j)</a>
+        }
+
+    }
+    @if (Model.month < 10)
+    {
+        <h1>Данные за 0@(Model.month) / @Model.year</h1>
+    }
+    else
+    {
+        <h1>Данные за @(Model.month) / @Model.year</h1>
+    }
+
+    for (int i = 0; i < @Model.weathers.Count; i++)
+    {
+        <a>@Model.weathers[i].Date</a>
+        <a> @Model.weathers[i].Time </a>
+        <a>@Model.weathers[i].T </a>
+        <a>@Model.weathers[i].Vlaga </a>
+        <a>@Model.weathers[i].Td </a>
+        <a>@Model.weathers[i].Ps </a>
+        <a>@Model.weathers[i].NaprVet </a>
+        <a>@Model.weathers[i].SpeedVetra </a>
+        <a>@Model.weathers[i].Oblach </a>
+        <a>@Model.weathers[i].h </a>
+        <a>@Model.weathers[i].VV </a>
+        <a>@Model.weathers[i].pogoda </a>
+
+        <p></p>
+    }
+}
+
+
